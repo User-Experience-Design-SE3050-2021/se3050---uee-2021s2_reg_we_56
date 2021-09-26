@@ -3,6 +3,7 @@
 import React from 'react';
 // import ViewPackages from "./Component/Packages/ViewPackages/ViewPackages";
 import LoginView from "./Component/Login/LoginView/LoginView";
+import DuePayment from "./Component/DuePayment/DuePayment";
 
 import {
   SafeAreaView,
@@ -24,6 +25,7 @@ function App() {
        <Navigator>
          {/*<Screen  name={"ViewPackages"} component={ViewPackages}/>*/}
          <Screen  name={"ViewLogin"} component={LoginView}/>
+         {/*  <Screen  name={"ViewDuePayment"} component={DuePayment}/>*/}
        </Navigator>
      </NavigationContainer>
   );
