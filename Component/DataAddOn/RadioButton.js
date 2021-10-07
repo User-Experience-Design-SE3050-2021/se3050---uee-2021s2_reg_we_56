@@ -1,7 +1,6 @@
 import React from "react";
 import RadioButtonRN from "radio-buttons-react-native";
 import { StyleSheet, View, Text } from "react-native";
-import {ScrollView} from "react-native-gesture-handler";
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 
