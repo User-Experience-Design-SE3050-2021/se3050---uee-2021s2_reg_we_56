@@ -2,10 +2,15 @@
 
 import React from 'react';
 // import ViewPackages from "./Component/Packages/ViewPackages/ViewPackages";
+
 // import LoginView from "./Component/Login/LoginView/LoginView";
 import ViewDataAddOn from "./Component/DataAddOn/ViewDataAddOn";
 
 // import DataReloadBtn from "./Component/DataAddOn/DataReloadBtn";
+
+//import LoginView from "./Component/Login/LoginView/LoginView";
+//import DuePayment from "./Component/DuePayment/DuePayment";
+
 
 import {
   SafeAreaView,
@@ -26,9 +31,12 @@ function App() {
     <NavigationContainer>
        <Navigator>
          {/*<Screen  name={"ViewPackages"} component={ViewPackages}/>*/}
+
          <Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>
          {/*  <Screen name={"btn"} component={DataReloadBtn}/>*/}
          {/*<Screen  name={"ViewLogin"} component={LoginView}/>*/}
+         {/*  <Screen  name={"ViewDuePayment"} component={DuePayment}/>*/}
+
        </Navigator>
      </NavigationContainer>
   );
