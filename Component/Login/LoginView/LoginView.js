@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
+import {Button} from "native-base";
+import * as Alert from "react-native";
+import {ScrollView} from "react-native-gesture-handler";
+import {heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native-responsive-screen'
 //import Svg, { Ellipse } from "react-native-svg";
 
 function LoginView(props) {
   return (
+      <ScrollView>
     <View style={styles.container}>
       <View style={styles.ellipseStack}>
         {/*<Svg viewBox="0 0 781.3 372.87" style={styles.ellipse}>*/}
@@ -38,7 +43,14 @@ function LoginView(props) {
       <View style={styles.rect2}>
         <Text style={styles.login2}>Login</Text>
       </View>
+      {/*<Button*/}
+
+      {/*    title="Login"*/}
+      {/*    // color="#f194ff"*/}
+      {/*    // onPress={() => Alert.alert('Button with adjusted color pressed')}*/}
+      {/*/>*/}
     </View>
+      </ScrollView>
   );
 }
 
@@ -54,10 +66,10 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   image: {
-    top: 195,
-    left: 289,
-    width: 177,
-    height: 81,
+    top: hp('18%'),
+    right: wp('53%'),
+    width: wp('40%'),
+    height: hp('40%'),
     position: "absolute"
   },
   ellipseStack: {
@@ -133,7 +145,7 @@ const styles = StyleSheet.create({
     height: 53,
     backgroundColor: "rgba(208,2,27,1)",
     borderRadius: 44,
-    marginTop: 90,
+    marginTop: 70,
     marginLeft: 65
   },
   login2: {
