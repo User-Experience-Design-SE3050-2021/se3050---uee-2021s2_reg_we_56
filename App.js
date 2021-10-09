@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-// import ViewPackages from "./Component/Packages/ViewPackages/ViewPackages";
+import ViewPackages from "./Component/Packages/ViewPackages/ViewPackages";
 // import LoginView from "./Component/Login/LoginView/LoginView";
-// import ViewDataAddOn from "./Component/DataAddOn/ViewDataAddOn";
+import ViewDataAddOn from "./Component/DataAddOn/ViewDataAddOn";
 import HomePage from "./Component/HomePage/Homepage/HomePage";
-// import LoginView from "./Component/Login/LoginView/LoginView";
-// import DuePayment from "./Component/DuePayment/DuePayment";
+import DuePayment from "./Component/DuePayment/DuePayment";
+import UsageHistory from "./Component/UsuageHistory/UsuageHistory/UsuageHistory";
 
 import {
   SafeAreaView,
@@ -25,11 +25,12 @@ function App() {
   return (
     <NavigationContainer>
        <Navigator>
-         {/*<Screen  name={"ViewPackages"} component={ViewPackages}/>*/}
-         {/*<Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>*/}
-           <Screen name={"ViewHomePage"} component={HomePage}/>
-         {/*<Screen  name={"ViewLogin"} component={LoginView}/>*/}
-         {/*  <Screen  name={"ViewDuePayment"} component={DuePayment}/>*/}
+         <Screen name={"ViewHomePage"} component={HomePage}/>
+         <Screen  name={"ViewPackages"} component={ViewPackages}/>
+         <Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>
+         {/*/!*<Screen  name={"ViewLogin"} component={LoginView}/>*!/*/}
+         <Screen  name={"ViewDuePayment"} component={DuePayment}/>
+         <Screen name={"ViewUsageHistory"} component={UsageHistory}/>
        </Navigator>
      </NavigationContainer>
   );

@@ -2,8 +2,9 @@ import React from "react";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {  StyleSheet, Text, View, Image} from "react-native";
 import {Center, Divider, Heading, Stack, VStack, ScrollView, Box, HStack, Button, Fab} from "native-base";
+import UsageHistory from "../../UsuageHistory/UsuageHistory/UsuageHistory";
 
-function HomePage(){
+function HomePage({navigation}){
     return(
         <NativeBaseProvider>
             <View style={styles.initialContainer}>
@@ -94,6 +95,7 @@ function HomePage(){
                                     colorScheme="danger"
                                     style={styles.butn}
                                     //  onPress={() => console.log('hello world')}
+                                    onPress={() => navigation.navigate('ViewDataAdd')}
                                 >
                                     Adds On
                                 </Button>
@@ -104,6 +106,7 @@ function HomePage(){
                                     colorScheme="danger"
                                     style={styles.butn}
                                     //  onPress={() => console.log('hello world')}
+                                    onPress={() => navigation.navigate('ViewUsageHistory')}
                                 >
                                     Usuage
                                 </Button>
@@ -150,10 +153,10 @@ function HomePage(){
                                     colorScheme="danger"
                                     style={styles.butnDown}
                                     //  onPress={() => console.log('hello world')}
+                                    onPress={() => navigation.navigate('ViewPackages')}
                                 >
                                     <Text style={styles.arrow}> GO</Text>
                                 </Button>
-
                             </HStack>
                         </Box>
 
@@ -163,8 +166,16 @@ function HomePage(){
                         >
                             <Text style={styles.packageCurrentText}>Currently Activated Package </Text>
                             <Text style={styles.packageCurrentText2}> Bell's Double Pack</Text>
-                            <Text style={styles.packageCurrentText3}> Change</Text>
-                            {/*<Text></Text>*/}
+
+                            <Button
+                                size="lg"
+                                colorScheme="danger"
+                                style={styles.packageCurrentText3}
+                                //  onPress={() => console.log('hello world')}
+                                onPress={() => navigation.navigate('ViewPackages')}
+                            >
+                                Change
+                            </Button>
                         </Box>
 
                     </ScrollView>
@@ -355,10 +366,12 @@ const styles = StyleSheet.create({
     },
     packageCurrentText3:{
         color: 'red',
-        fontWeight:'bold',
-        fontSize: 19,
-        marginTop:'3%',
-        marginLeft:'70%'
+        // fontWeight:'bold',
+        // fontSize: 19,
+        marginTop:'6%',
+        marginLeft:'53%',
+        borderRadius:20,
+        width:"44%"
     }
 });
 
