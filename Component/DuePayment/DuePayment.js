@@ -1,82 +1,105 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import {
+    StyleSheet,
+    View,
+    Text,
 
-function DuePayment(props) {
+} from "react-native";
+import { RadioButton } from 'react-native-paper';
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
+import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
+import {Button, HStack, Stack} from "native-base";
+
+function DuePayment() {
+    const [checked, setChecked] = React.useState('first');
     return (
+        <NativeBaseProvider>
         <View style={styles.container}>
-            <View style={styles.rect1Stack}>
-                <View style={styles.rect1}>
-                    <View style={styles.rect3}>
-                        <View style={styles.directoryNumberRow}>
-                            <Text style={styles.directoryNumber}>Directory Number :</Text>
-                            <Text style={styles.directoryNumber1}>0110238876</Text>
-                        </View>
-                        <View style={styles.accountNumberRow}>
-                            <Text style={styles.accountNumber}>Account Number :</Text>
-                            <Text style={styles.directoryNumber2}>007180075</Text>
-                        </View>
-                    </View>
-                    <Text style={styles.duePaymentDetails}>Due Payment Details</Text>
-                    <View style={styles.rect4}>
-                        <View style={styles.march7180076Row}>
-                            <Text style={styles.march7180076}>March</Text>
-                            <Text style={styles.rs200000}>Rs 2000.00</Text>
-                        </View>
-                    </View>
-                    <View style={styles.rect5}>
-                        <View style={styles.aprilRow}>
-                            <Text style={styles.april}>April</Text>
-                            <Text style={styles.rs200001}>Rs 2000.00</Text>
-                        </View>
-                    </View>
-                    <View style={styles.rect6}>
-                        <View style={styles.mayRow}>
-                            <Text style={styles.may}>May</Text>
-                            <Text style={styles.rs200002}>Rs 2000.00</Text>
-                        </View>
-                    </View>
-                    <View style={styles.rect7}>
-                        <Text style={styles.billAmount3}>Total Due Amount Rs 5000.00</Text>
-                        <Text style={styles.cardType3}>Card Type :</Text>
-                        <View style={styles.rect8Row}>
-                            <View style={styles.rect8}></View>
-                            <Text style={styles.visa}>Visa</Text>
-                            <View style={styles.rect9}></View>
-                            <Text style={styles.master}>Master</Text>
-                            <View style={styles.rect10}></View>
-                            <Text style={styles.amex}>Amex</Text>
-                        </View>
-                    </View>
-                    <TouchableOpacity
-                        onPress={() => props.navigation.navigate("Untitled")}
-                        style={styles.button1}
-                    >
-                        <Text style={styles.proceed}>Proceed</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.rect2}>
-                    <Text style={styles.duePayments}>Due Payments</Text>
+            <View style={styles.card1}>
+                <HStack space={2} alignItems="center">
+                    <Text style={styles.directory}>Directory number :</Text>
+                    <Text style={styles.directoryNo}>0110238876 </Text>
+                </HStack>
+                <HStack space={2} alignItems="center">
+                    <Text style={styles.account}>Account Number :</Text>
+                    <Text style={styles.accountNo}> 007180065 </Text>
+                </HStack>
+            </View>
+            <View style={styles.pay}>
+                <Text style={styles.duePaymentDetails}>Due Payment Details</Text>
+            </View>
+            <View style={styles.payment}>
+                <HStack space={2} alignItems="center">
+                    <Text style={styles.september}>September</Text>
+                    <Text style={styles.septemberAmount}>Rs 2000.00</Text>
+                </HStack>
+            </View>
+            <View style={styles.payment1}>
+                <HStack space={2} alignItems="center">
+                    <Text style={styles.october}>October</Text>
+                    <Text style={styles.octoberAmount}>Rs 1500.00</Text>
+                </HStack>
+            </View>
+            <View style={styles.payment2}>
+                <HStack space={2} alignItems="center">
+                    <Text style={styles.november}>November</Text>
+                    <Text style={styles.novemberAmount}>Rs 1500.00</Text>
+                </HStack>
+            </View>
+            <View style={styles.duePayment}>
+                    <Text style={styles.total}>Total Due Amount Rs 5000.00</Text>
+                    <Text style={styles.cardType}>Card Type :</Text>
+                <View style={styles.radioView}>
+                    <HStack space={2} alignItems="center">
+                        <RadioButton
+                            value="first"
+                            status={ checked === 'first' ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked('first')}
+                        />
+                        <Text style={styles.radioText}>Visa</Text>
+                        <RadioButton
+                            value="second"
+                            status={ checked === 'second' ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked('second')}
+                        />
+                        <Text style={styles.radioText}>Master</Text>
+                        <RadioButton style={styles.radioAmex}
+                            value="third"
+                            status={ checked === 'third' ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked('third')}
+                        />
+                        <Text style={styles.radioText}>Amex</Text>
+                    </HStack>
                 </View>
             </View>
+            <Stack space={2} alignItems="center">
+                <HStack space={2} alignItems="center">
+                    <Button
+                        size="lg"
+                        colorScheme="danger"
+                        style={styles.btn}
+                        //  onPress={() => console.log('hello world')}
+                    >
+                        Proceed
+                    </Button>
+                </HStack>
+            </Stack>
         </View>
+        </NativeBaseProvider>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
+    container:{
+        flex:1,
+        alignItems:'center',
     },
-    rect1: {
-        top: 0,
-        left: 0,
-        width: 400,
-        height: 790,
-        position: "absolute",
-        backgroundColor: "rgba(255,255,255,1)"
-    },
-    rect3: {
-        width: 350,
-        height: 99,
+    card1:{
+
+        width: wp('90%'),
+        height: hp('12%'),
+        top:hp('5%'),
+        paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -86,67 +109,61 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.38,
         shadowRadius: 0,
-        borderRadius: 15,
-        marginTop: 87,
-        marginLeft: 25
+        borderRadius: 10,
     },
-    directoryNumber: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 27,
-        width: 190,
-        fontSize: 20
+
+    directory:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('.5%'),
+        fontWeight: "bold",
+        left:hp('5%'),
+        top:hp('1%')
     },
-    directoryNumber1: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 27,
-        width: 150,
-        fontSize: 20,
-        marginLeft: 10
+
+    directoryNo:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('.5%'),
+        fontWeight: "bold",
+        left:hp('4%'),
+        top:hp('1%')
     },
-    directoryNumberRow: {
-        height: 28,
-        flexDirection: "row",
-        marginTop: 15,
-        marginLeft: 20,
-        marginRight: 16
+    account:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('.5%'),
+        fontWeight: "bold",
+        left:hp('5%'),
+        top:hp('1%')
     },
-    accountNumber: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 27,
-        width: 190,
-        fontSize: 20
+
+    accountNo:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('.5%'),
+        fontWeight: "bold",
+        left:hp('4%'),
+        top:hp('1%')
     },
-    directoryNumber2: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 27,
-        width: 150,
-        fontSize: 20,
-        marginLeft: 9
+
+    pay:{
+        width: wp('90%'),
+        height: hp('5%'),
+        top:hp('7%'),
+
     },
-    accountNumberRow: {
-        height: 28,
-        flexDirection: "row",
-        marginTop: 5,
-        marginLeft: 20,
-        marginRight: 16
-    },
-    duePaymentDetails: {
-        fontFamily: "roboto-700",
+    duePaymentDetails:{
+        fontSize: hp('2.1%'),
         color: "rgba(16,40,254,1)",
-        lineHeight: 20,
-        fontSize: 21,
-        width: 266,
-        height: 20,
-        marginTop: 40,
-        marginLeft: 25
+        padding: hp('.5%'),
+        fontWeight: "bold"
     },
-    rect4: {
-        width: 350,
-        height: 52,
+    payment:{
+        width: wp('90%'),
+        height: hp('10%'),
+        top:hp('8%'),
+        paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -156,37 +173,27 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.38,
         shadowRadius: 0,
-        borderRadius: 15,
-        flexDirection: "row",
-        marginTop: 14,
-        marginLeft: 25
+        borderRadius: 10,
     },
-    march7180076: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 27,
-        width: 89,
-        fontSize: 20
+    september:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('5%')
     },
-    rs200000: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 27,
-        width: 129,
-        fontSize: 20,
-        marginLeft: 73
+    septemberAmount:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('15%')
     },
-    march7180076Row: {
-        height: 28,
-        flexDirection: "row",
-        flex: 1,
-        marginRight: 25,
-        marginLeft: 44,
-        marginTop: 11
-    },
-    rect5: {
-        width: 350,
-        height: 52,
+    payment1:{
+        width: wp('90%'),
+        height: hp('10%'),
+        top:hp('9%'),
+        paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -196,37 +203,27 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.38,
         shadowRadius: 0,
-        borderRadius: 15,
-        flexDirection: "row",
-        marginTop: 22,
-        marginLeft: 28
+        borderRadius: 10,
     },
-    april: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 30,
-        width: 89,
-        fontSize: 20
+    october:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('5%')
     },
-    rs200001: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 30,
-        width: 129,
-        fontSize: 20,
-        marginLeft: 69
+    octoberAmount:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('18%')
     },
-    aprilRow: {
-        height: 28,
-        flexDirection: "row",
-        flex: 1,
-        marginRight: 32,
-        marginLeft: 41,
-        marginTop: 11
-    },
-    rect6: {
-        width: 350,
-        height: 52,
+    payment2:{
+        width: wp('90%'),
+        height: hp('10%'),
+        top:hp('10%'),
+        paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -236,37 +233,27 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.38,
         shadowRadius: 0,
-        borderRadius: 15,
-        flexDirection: "row",
-        marginTop: 24,
-        marginLeft: 25
+        borderRadius: 10,
     },
-    may: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 30,
-        width: 89,
-        fontSize: 20
+    november:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('5%')
     },
-    rs200002: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 27,
-        width: 129,
-        fontSize: 20,
-        marginLeft: 69
+    novemberAmount:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('1%'),
+        top: hp('1%'),
+        left:hp('16%')
     },
-    mayRow: {
-        height: 30,
-        flexDirection: "row",
-        flex: 1,
-        marginRight: 29,
-        marginLeft: 44,
-        marginTop: 11
-    },
-    rect7: {
-        width: 350,
-        height: 154,
+    duePayment:{
+        width: wp('90%'),
+        height: hp('18%'),
+        top:hp('12%'),
+        paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -276,136 +263,38 @@ const styles = StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.38,
         shadowRadius: 0,
-        borderRadius: 12,
-        marginTop: 32,
-        marginLeft: 28
+        borderRadius: 10,
     },
-    billAmount3: {
-        fontFamily: "roboto-700",
-        color: "rgba(248,13,13,1)",
-        height: 27,
-        width: 320,
-        fontSize: 20,
-        marginTop: 26,
-        marginLeft: 28
+    total:{
+        fontSize: hp('2%'),
+        color: "#ff0000",
+        padding: hp('1%'),
+        left:hp('5%'),
+        fontWeight: "bold"
     },
-    cardType3: {
-        fontFamily: "roboto-700",
-        color: "rgba(0,0,0,1)",
-        height: 30,
-        width: 134,
-        fontSize: 20,
-        marginTop: 17,
-        marginLeft: 28
+    cardType:{
+        fontSize: hp('2%'),
+        color: "#5D5C5C",
+        padding: hp('1%'),
+        left:hp('5%'),
     },
-    rect8: {
-        width: 22,
-        height: 17,
-        backgroundColor: "rgba(255,255,255,1)",
-        borderRadius: 100,
-        borderWidth: 1,
-        borderColor: "rgba(18,29,130,1)",
-        marginTop: 8
+    radioView:{
+
+        left:hp('5%')
     },
-    visa: {
-        fontFamily: "roboto-700",
-        color: "rgba(16,40,254,1)",
-        height: 27,
-        width: 56,
-        fontSize: 20,
-        marginLeft: 14
+    radioText:{
+        color: "#5D5C5C",
     },
-    rect9: {
-        width: 22,
-        height: 17,
-        backgroundColor: "rgba(255,255,255,1)",
-        borderRadius: 100,
-        borderWidth: 1,
-        borderColor: "rgba(18,29,130,1)",
-        marginLeft: 10,
-        marginTop: 8
-    },
-    master: {
-        fontFamily: "roboto-700",
-        color: "rgba(16,40,254,1)",
-        height: 27,
-        width: 85,
-        fontSize: 20,
-        marginLeft: 8
-    },
-    rect10: {
-        width: 22,
-        height: 17,
-        backgroundColor: "rgba(255,255,255,1)",
-        borderRadius: 100,
-        borderWidth: 1,
-        borderColor: "rgba(18,29,130,1)",
-        marginLeft: 8,
-        marginTop: 8
-    },
-    amex: {
-        fontFamily: "roboto-700",
-        color: "rgba(16,40,254,1)",
-        height: 27,
-        width: 60,
-        fontSize: 20,
-        marginLeft: 8
-    },
-    rect8Row: {
-        height: 28,
-        flexDirection: "row",
-        marginTop: 13,
-        marginLeft: 28,
-        marginRight: 21
-    },
-    button1: {
-        width: 267,
-        height: 55,
-        backgroundColor: "rgba(248,13,13,1)",
-        borderRadius: 15,
-        marginTop: 26,
-        marginLeft: 72
-    },
-    proceed: {
-        fontFamily: "roboto-regular",
-        color: "rgba(255,255,255,1)",
-        lineHeight: 25,
-        fontSize: 26,
-        width: 129,
-        height: 32,
-        marginTop: 16,
-        marginLeft: 80
-    },
-    rect2: {
-        top: 0,
-        width: 415,
-        height: 57,
-        position: "absolute",
-        backgroundColor: "rgba(255,255,255,1)",
-        shadowColor: "rgba(0,0,0,1)",
-        shadowOffset: {
-            width: 3,
-            height: 3
-        },
-        elevation: 5,
-        shadowOpacity: 0.15,
-        shadowRadius: 0,
-        left: 0
-    },
-    duePayments: {
-        fontFamily: "roboto-regular",
-        color: "rgba(16,40,254,1)",
-        lineHeight: 20,
-        fontSize: 21,
-        width: 170,
-        height: 20,
-        marginTop: 18,
-        marginLeft: 81
-    },
-    rect1Stack: {
-        width: 417,
-        height: 790
+    btn: {
+        fontWeight: 'bold' ,
+        borderRadius:50,
+        borderColor:'rgb(246,41,41)',
+        borderWidth:2,
+        top: hp('17%'),
+        bottom: hp('5%'),
+        width: wp('63%')
     }
+
 });
 
 export default DuePayment
