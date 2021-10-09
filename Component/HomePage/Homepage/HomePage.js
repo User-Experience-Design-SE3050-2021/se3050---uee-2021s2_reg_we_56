@@ -2,7 +2,6 @@ import React from "react";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {  StyleSheet, Text, View, Image} from "react-native";
 import {Center, Divider, Heading, Stack, VStack, ScrollView, Box, HStack, Button, Fab} from "native-base";
-import UsageHistory from "../../UsuageHistory/UsuageHistory/UsuageHistory";
 
 function HomePage({navigation}){
     return(
@@ -57,6 +56,14 @@ function HomePage({navigation}){
 </View>
 
                 <VStack w="100%" h="62%">
+                    <View
+                        style={{
+                            borderBottomColor: 'dimgrey',
+                            borderBottomWidth: 1,
+                            marginTop:"4%",
+                            elevation: 3,
+                        }}
+                    />
                     <ScrollView>
                         <Text style={styles.headerText}>Data Usage </Text>
 
@@ -105,7 +112,6 @@ function HomePage({navigation}){
                                     variant="outline"
                                     colorScheme="danger"
                                     style={styles.butn}
-                                    //  onPress={() => console.log('hello world')}
                                     onPress={() => navigation.navigate('ViewUsageHistory')}
                                 >
                                     Usuage
@@ -128,7 +134,6 @@ function HomePage({navigation}){
                                     size="lg"
                                     colorScheme="danger"
                                     style={styles.butn}
-                                    //  onPress={() => console.log('hello world')}
                                 >
                                     Pay Now
                                 </Button>
@@ -152,7 +157,6 @@ function HomePage({navigation}){
                                     size="lg"
                                     colorScheme="danger"
                                     style={styles.butnDown}
-                                    //  onPress={() => console.log('hello world')}
                                     onPress={() => navigation.navigate('ViewPackages')}
                                 >
                                     <Text style={styles.arrow}> GO</Text>
@@ -171,7 +175,6 @@ function HomePage({navigation}){
                                 size="lg"
                                 colorScheme="danger"
                                 style={styles.packageCurrentText3}
-                                //  onPress={() => console.log('hello world')}
                                 onPress={() => navigation.navigate('ViewPackages')}
                             >
                                 Change

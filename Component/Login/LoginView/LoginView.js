@@ -11,7 +11,7 @@ import {heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 //import Svg, { Ellipse } from "react-native-svg";
 
-function LoginView(props) {
+function LoginView({navigation}) {
     return (
         <NativeBaseProvider>
             <ScrollView>
@@ -32,7 +32,9 @@ function LoginView(props) {
                             source={require("../../Images/logo.png")}
                             resizeMode="contain"
                             style={styles.image}
-                        ></Image>
+                        >
+
+                        </Image>
                     </View>
                     <Text style={styles.login}>Login</Text>
                     <Text style={styles.loremIpsum}>Please Sign In to Continue</Text>
@@ -60,6 +62,7 @@ function LoginView(props) {
                         colorScheme="danger"
                         style={styles.bttn}
                         //  onPress={() => console.log('hello world')}
+                        onPress={() => navigation.navigate('ViewHomePage')}
                     >
                         Login
                     </Button>

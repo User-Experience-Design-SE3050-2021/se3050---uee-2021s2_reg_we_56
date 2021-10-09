@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import ViewPackages from "./Component/Packages/ViewPackages/ViewPackages";
-// import LoginView from "./Component/Login/LoginView/LoginView";
+import LoginView from "./Component/Login/LoginView/LoginView";
 import ViewDataAddOn from "./Component/DataAddOn/ViewDataAddOn";
 import HomePage from "./Component/HomePage/Homepage/HomePage";
 import DuePayment from "./Component/DuePayment/DuePayment";
@@ -25,10 +25,10 @@ function App() {
   return (
     <NavigationContainer>
        <Navigator>
+         <Screen  name={"ViewLogin"} component={LoginView}/>
          <Screen name={"ViewHomePage"} component={HomePage}/>
          <Screen  name={"ViewPackages"} component={ViewPackages}/>
          <Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>
-         {/*/!*<Screen  name={"ViewLogin"} component={LoginView}/>*!/*/}
          <Screen  name={"ViewDuePayment"} component={DuePayment}/>
          <Screen name={"ViewUsageHistory"} component={UsageHistory}/>
        </Navigator>
