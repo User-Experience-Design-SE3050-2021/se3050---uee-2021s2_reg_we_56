@@ -10,7 +10,7 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {Button, HStack, Stack} from "native-base";
 
-function ViewDataAddOn(){
+function ViewDataAddOn({navigation}){
     const [onChange, setOnChange] = React.useState(0);
 
     const getChange =() =>{
@@ -52,6 +52,7 @@ function ViewDataAddOn(){
                        colorScheme="danger"
                        style={styles.btn}
                        //  onPress={() => console.log('hello world')}
+                       onPress={() => navigation.navigate('ViewHomePage')}
                    >
                        Cancel
                    </Button>
