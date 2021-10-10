@@ -35,7 +35,7 @@ export default function LoginDetails() {
                     //onChangeText={onChangeNumber}
                     value= '*********'
                     //placeholder="john@xyz.com"
-                    keyboardType="invisible-password"
+                    keyboardType="numeric"
                 />
             </View>
             <View style={{ width: "80%", marginBottom: '20%' }}>

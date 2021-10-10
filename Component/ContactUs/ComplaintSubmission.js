@@ -48,7 +48,7 @@ export default function ComplaintSubmission() {
             alert('Please fill Description')
         }
 
-        alert('Data Saved');
+        alert('Complaint Message Successful, We will get back to you shortly');
     };
 
     const getValue = () => {
@@ -153,7 +153,7 @@ export default function ComplaintSubmission() {
                     </TouchableOpacity>
                 </View>
             </View>
-            {/* <Text>{NameValue} {EmailValue} {ContactValue} {DescriptionValue}</Text> */}
+             {/*<Text>{NameValue} {EmailValue} {ContactValue} {DescriptionValue}</Text> */}
         </View>
     );
 }
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
+        //marginTop: 10,
     },
     cancelButton: {
         flex: 1,
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         //backgroundColor: "brown",
         marginBottom: 35,
-        marginTop: 20
+
     },
     headingFont: {
         fontSize: 25,
