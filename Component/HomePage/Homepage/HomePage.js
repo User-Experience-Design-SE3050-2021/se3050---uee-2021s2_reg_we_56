@@ -1,9 +1,22 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {  StyleSheet, Text, View, Image} from "react-native";
 import {Center, Divider, Heading, Stack, VStack, ScrollView, Box, HStack, Button, Fab} from "native-base";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function HomePage({navigation}){
+
+    const [data,setData] = React.useState('')
+
+    const findData = async () => {
+        const value = await AsyncStorage.getItem('data')
+        setData(JSON.parse(value))
+    }
+
+    useEffect(() => {
+        findData()
+    },[])
+
     return(
         <NativeBaseProvider>
             <View style={styles.initialContainer}>
@@ -80,7 +93,7 @@ function HomePage({navigation}){
                                     p="3"
                                 >
                                     <Text style={styles.subBoxSubText1}>AnyTime </Text>
-                                    <Text style={styles.subBoxSubText2}>500 MB</Text>
+                                    <Text style={styles.subBoxSubText2}>{data.data}</Text>
                                     <Text style={styles.subBoxSubText3}>remaining </Text>
                                 </Box>
 

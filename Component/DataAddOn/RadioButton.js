@@ -5,11 +5,11 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 
 
 class RadioButton extends React.Component {
-constructor(props) {
+    constructor(props) {
     super(props);
 
     this.state = {
-        res: {},
+        res:'',
         example: 1
     };
 
@@ -28,13 +28,17 @@ constructor(props) {
     this._renderRadioBtn = this._renderRadioBtn.bind(this);
 }
 
+    handleDay = (value) => {
+        this.setState({res:value})
+    }
+
 _renderRadioBtn() {
     let {example} = this.state;
     if (example === 1) {
         return (
             <RadioButtonRN
                 data={this.colors}
-                selectedBtn={(e) => this.setState({res: e})}
+                selectedBtn={this.handleDay}
                 circleSize={16}
             />
         )

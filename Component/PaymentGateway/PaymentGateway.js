@@ -4,7 +4,8 @@ import {
     View,
     Text,
     TextInput,
-    Image
+    Image,
+    ToastAndroid
 } from "react-native";
 
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
@@ -15,6 +16,12 @@ import {ScrollView} from "react-native-gesture-handler";
 
 
 function PaymentGateway({navigation}){
+
+    const handlePayment = () => {
+
+        ToastAndroid.show('Successfully Data Added !', ToastAndroid.SHORT)
+        navigation.navigate('ViewHomePage')
+    }
 
     return (
         <NativeBaseProvider>
@@ -100,6 +107,19 @@ function PaymentGateway({navigation}){
                     </Stack>
                 </View>
             </ScrollView>
+                <Stack space={2} alignItems="center">
+                    <HStack space={2} alignItems="center">
+                        <Button
+                            size="lg"
+                            colorScheme="danger"
+                            style={styles.btn}
+                            //  onPress={() => console.log('hello world')}
+                            onPress={handlePayment}
+                        >
+                            Pay Now
+                        </Button>
+                    </HStack>
+                </Stack>
             </View>
         </NativeBaseProvider>
     )

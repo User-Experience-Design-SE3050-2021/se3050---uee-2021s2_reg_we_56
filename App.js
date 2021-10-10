@@ -10,7 +10,6 @@ import Payment from "./Component/Payment/Payment";
 import PaymentGateway from "./Component/PaymentGateway/PaymentGateway";
 import PaymentHistory from "./Component/PaymentHistory/PaymentHistory";
 
-
 import {
   SafeAreaView,
   ScrollView,
@@ -25,6 +24,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 const {Navigator,Screen} = createStackNavigator()
+import ContactUsSample from "./Component/ContactUs/ContactUsSample";
+import Feedback from "./Component/ContactUs/Feedback";
+import ComplaintSubmission from "./Component/ContactUs/ComplaintSubmission";
+import BranchNetwork from "./Component/ContactUs/BranchNetwork"
+import AccountOptions from "./Component/UserAccount/AccountOptions";
+import UserProfile from "./Component/UserAccount/UserProfile";
+import AccountDetails from "./Component/UserAccount/AccountDetails";
+import LoginDetails from "./Component/UserAccount/LoginDetails";
 
 
 function App() {
@@ -40,6 +47,15 @@ function App() {
          <Screen name={"ViewPayment"} component={Payment}/>
          <Screen name={"ViewPaymentGateway"} component={PaymentGateway}/>
          <Screen name={"ViewPaymentHistory"} component={PaymentHistory}/>
+         <Screen  name={"CONTACT US"} component={ContactUsSample}/>
+         <Screen  name={"FEEDBACK"} component={Feedback}/>
+         <Screen  name={"COMPLAINT SUBMISSION"} component={ComplaintSubmission}/>
+         <Screen  name={"BRANCH NETWORK"} component={BranchNetwork}/>
+           <Screen  name={"ACCOUNT OPTION"} component={AccountOptions}/>
+           <Screen  name={"USER PROFILE"} component={UserProfile}/>
+           <Screen  name={"ACCOUNT DETAILS"} component={AccountDetails}/>
+           <Screen  name={"LOGIN DETAILS"} component={LoginDetails}/>
+
        </Navigator>
      </NavigationContainer>
   );

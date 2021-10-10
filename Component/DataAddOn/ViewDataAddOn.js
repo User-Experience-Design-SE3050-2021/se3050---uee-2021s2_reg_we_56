@@ -9,65 +9,106 @@ import Slider from '@react-native-community/slider';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {Button, HStack, Stack} from "native-base";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function ViewDataAddOn({navigation}){
+function ViewDataAddOn({navigation}) {
     const [onChange, setOnChange] = React.useState(0);
+    const [finalValue, setFinalValue] = React.useState('')
 
-    const getChange =() =>{
-        if (onChange === 1){
-            return '1 GB Anytime';
-        }else if (onChange === 2){
-            return '2 GB Anytime';
-        }else if (onChange === 3){
-            return '5 GB Anytime';
-        }else if (onChange === 4){
-            return '10 GB Anytime';
-        }else if (onChange === 5){
-            return '15 GB Anytime';
-        }else if (onChange === 6){
-            return '20 GB Anytime';
-        }else if (onChange === 7){
-            return '30 GB Anytime';
-        }else {
-            return '0 GB Anytime';
+    const handleSliderValue = (value) => {
+        setOnChange(value)
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+
+        if (onChange === 1) {
+            await setFinalValue('1 GB');
+        } else if (onChange === 2) {
+            await setFinalValue('2 GB');
+        } else if (onChange === 3) {
+            await setFinalValue('5 GB');
+        } else if (onChange === 4) {
+            await setFinalValue('10 GB');
+        } else if (onChange === 5) {
+            await setFinalValue('15 GB');
+        } else if (onChange === 6) {
+            await setFinalValue('20 GB');
+        } else if (onChange === 7) {
+            await setFinalValue('30 GB');
+        } else {
+            await setFinalValue('0 GB');
+        }
+
+        const data = {
+            data: onChange
+        }
+
+        console.log(data)
+
+        await AsyncStorage.setItem('data', JSON.stringify(data));
+        const value = await AsyncStorage.getItem('data')
+        setFinalValue(value)
+
+        navigation.navigate('ViewPayment')
+    }
+
+    const getChange = () => {
+        if (onChange === 1) {
+           return '1 GB';
+        } else if (onChange === 2) {
+            return '2 GB';
+        } else if (onChange === 3) {
+            return '5 GB';
+        } else if (onChange === 4) {
+            return '10 GB';
+        } else if (onChange === 5) {
+            return '15 GB';
+        } else if (onChange === 6) {
+            return '20 GB';
+        } else if (onChange === 7) {
+            return '30 GB';
+        } else {
+            return '0 GB';
         }
     }
     return (
         <NativeBaseProvider>
             {/****************SlideBar and data Amount********************************************/}
-   <View style={styles.container}>
-       <Text style={styles.dataValue}> {getChange()} </Text>
-       <Text style={styles.dataNumber}> GB  </Text>
-    <Slider  style={styles.slider} size="md"  minimumTrackTintColor="#ff0000" thumbTintColor="#ff0000"
-             minimumValue={0} maximumValue={7} step={1} onValueChange={setOnChange}
-    />
-    {/*****************************Radio Button Options Called Here********************************/}
-       <RadioButton/>
-       {/***************************Reload and Cancel Button**********************************/}
-           <Stack space={2} alignItems="center">
-               <HStack space={2} alignItems="center">
-                   <Button
-                       size="lg"
-                       variant="outline"
-                       colorScheme="danger"
-                       style={styles.btn}
-                       onPress={() => navigation.navigate('ViewHomePage')}
-                   >
-                       Cancel
-                   </Button>
+            <View style={styles.container}>
+                <Text style={styles.dataValue}> {getChange()} </Text>
+                <Text style={styles.dataNumber}> GB </Text>
+                <Slider style={styles.slider} size="md" minimumTrackTintColor="#ff0000" thumbTintColor="#ff0000"
+                        minimumValue={0} maximumValue={7} step={1} onValueChange={handleSliderValue}
+                />
+                {/*****************************Radio Button Options Called Here********************************/}
+                <RadioButton/>
+                {/***************************Reload and Cancel Button**********************************/}
+                <Stack space={2} alignItems="center">
+                    <HStack space={2} alignItems="center">
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            colorScheme="danger"
+                            style={styles.btn}
+                            onPress={() => navigation.navigate('ViewHomePage')}
+                        >
+                            Cancel
+                        </Button>
 
-                   <Button
-                       size="lg"
-                       colorScheme="danger"
-                       style={styles.btn}
-                       //  onPress={() => console.log('hello world')}
-                       onPress={() => navigation.navigate('ViewPayment')}
-                   >
-                       Reload
-                   </Button>
-               </HStack>
-           </Stack>
-   </View>
+                        <Button
+                            size="lg"
+                            colorScheme="danger"
+                            style={styles.btn}
+                            //  onPress={() => console.log('hello world')}
+                            onPress={handleSubmit}
+                        >
+                            Reload
+                        </Button>
+                    </HStack>
+                </Stack>
+            </View>
+
         </NativeBaseProvider>
     )
 }

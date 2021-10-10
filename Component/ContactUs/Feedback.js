@@ -65,7 +65,7 @@ const Feedback = () => {
             </View>
             <View style={styles.row}>
                 <TextInput
-                    style={{ padding: 20, width: "80%" }}
+                    style={{ padding: 3, width: "80%" }}
                     //onChangeText={onChangeNumber}
                     //value={number}
                     //placeholder="Internet is slow"
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     textStyle: {
         textAlign: 'center',
         fontSize: 20,
-        marginTop: 60,
+        marginTop: 20,
         padding: 30
     },
     CustomRatingBarStyle: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         //backgroundColor: "brown",
-        marginTop: 100,
+        marginTop: 20,
     },
     headingFont: {
         fontSize: 25,
