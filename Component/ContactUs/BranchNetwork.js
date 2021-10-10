@@ -6,13 +6,13 @@ export default function ListScrollView() {
     const [Items, setItems] = useState([
         {key: 1, location: 'Head Office', address: 'No. 344, Galle Road, Colombo 03', hotline: 1575, email: 'bellcare@mail.lankabell.com'},
         {key: 2, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 3, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 4, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 5, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 6, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 7, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 8, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
-        {key: 9, location: 'Ampara', address: 'No. 14/1, New Galle Road, Ambalangoda', telephone: '0911234584'},
+        {key: 3, location: 'Colombo', address: 'No. 16, Manning Place, Colpetty', telephone: '0911234586'},
+        {key: 4, location: 'Matara', address: 'No. 221, Beach Road, Matara', telephone: '0911236612'},
+        {key: 5, location: 'Jaffna', address: 'No. 12/11, Jaffna Town, Jaffna', telephone: '0911234656'},
+        {key: 6, location: 'Beruwala', address: 'No. 16/11, New Galle Road, Ambalangoda', telephone: '0911234584'},
+        {key: 7, location: 'Nugegoda', address: 'No. 122, Highlevel Road, Nugegoda', telephone: '0911232222'},
+        {key: 8, location: 'Vavuniya', address: 'No. 166, Vavuniya Town, Vavuniya', telephone: '0911238251'},
+        {key: 9, location: 'Kurunegala', address: 'No. 155, Kurunegala Town, Kurunegala', telephone: '0911232816'},
     ]);
     // const [Refresh, setRefresh] = useState(false);
 

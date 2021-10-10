@@ -5,11 +5,11 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    Navigate
+    ToastAndroid
 } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function ComplaintSubmission() {
+export default function ComplaintSubmission({navigation}) {
     const [Name, setName] = useState('');
     const [Email, setEmail] = useState('');
     const [Contact, setContact] = useState('');
@@ -20,35 +20,74 @@ export default function ComplaintSubmission() {
     const [DescriptionValue, setDescriptionValue] = useState('');
 
     const saveValue = () => {
-        if(Name){
-            AsyncStorage.setItem('name', Name);
-            setName('');
+        if(true) {
+            if (Name.length > 3) {
+                AsyncStorage.setItem('name', Name);
+                // setName('');
+                if (Email.length > 10) {
+                    AsyncStorage.setItem('email', Email);
+                    // setEmail('');
+                    if (Contact.length >= 10) {
+                        AsyncStorage.setItem('contact', Contact);
+                        // setContact('');
+                        if (Description.length > 10) {
+                            AsyncStorage.setItem('description', Description);
+                            ToastAndroid.show('Complaint has been successfully submitted, we will get back to you soon',ToastAndroid.LONG)
+
+                            setName('');
+                            setEmail('');
+                            setContact('');
+                            setDescription('');
+
+                        } else {
+                            ToastAndroid.show('Please fill every required detail',ToastAndroid.LONG)
+                        }
+                    } else {
+                        ToastAndroid.show('Please fill every required detail',ToastAndroid.LONG)
+                    }
+                } else {
+                    ToastAndroid.show('Please fill every required detail',ToastAndroid.LONG)
+                }
+            } else {
+                ToastAndroid.show('Please fill every required detail',ToastAndroid.LONG)
+            }
+
+
+            // if (Name.length > 3 ) {
+            //     AsyncStorage.setItem('name', Name);
+            //     setName('');
+            // } else {
+            //     alert('Please fill name')
+            // }
+            //
+            // if (Email.length > 10) {
+            //     AsyncStorage.setItem('email', Email);
+            //     setEmail('');
+            // } else {
+            //     alert('Please fill your email')
+            // }
+            //
+            // if (Contact.length > 10) {
+            //     AsyncStorage.setItem('contact', Contact);
+            //     setContact('');
+            // } else {
+            //     alert('Please fill your contact')
+            // }
+            //
+            // if (Description.length > 10) {
+            //     AsyncStorage.setItem('description', Description);
+            //     setDescription('');
+            // } else {
+            //     alert('Please fill Description')
+            // }
+
+
         }else{
-            alert('Please fill name')
+            ToastAndroid.show('Please fill every required detail',ToastAndroid.LONG)
         }
 
-        if(Email){
-            AsyncStorage.setItem('email', Email);
-            setEmail('');
-        }else{
-            alert('Please fill your email')
-        }
+        //alert('Complaint Message Successful, We will get back to you shortly');
 
-        if(Contact){
-            AsyncStorage.setItem('contact', Contact);
-            setContact('');
-        }else{
-            alert('Please fill your contact')
-        }
-
-        if(Description){
-            AsyncStorage.setItem('description', Description);
-            setDescription('');
-        }else{
-            alert('Please fill Description')
-        }
-
-        alert('Complaint Message Successful, We will get back to you shortly');
     };
 
     const getValue = () => {
@@ -134,7 +173,8 @@ export default function ComplaintSubmission() {
             <View style={styles.button}>
                 <View style={styles.cancelButton}>
                     <TouchableOpacity
-                        onPress={getValue}
+                        onPress={() => navigation.navigate('CONTACT US')}
+                        // onPress={getValue}
                         underlayColor="#fff"
                     >
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: 'black' }}>
@@ -153,7 +193,8 @@ export default function ComplaintSubmission() {
                     </TouchableOpacity>
                 </View>
             </View>
-             {/*<Text>{NameValue} {EmailValue} {ContactValue} {DescriptionValue}</Text> */}
+             {/*<Text>Name: {NameValue},  Email: {EmailValue}, Contact: {ContactValue}, Description: {DescriptionValue}</Text>*/}
+
         </View>
     );
 }
