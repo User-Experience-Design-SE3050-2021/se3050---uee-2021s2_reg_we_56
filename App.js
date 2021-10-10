@@ -6,6 +6,8 @@ import ViewDataAddOn from "./Component/DataAddOn/ViewDataAddOn";
 import HomePage from "./Component/HomePage/Homepage/HomePage";
 import DuePayment from "./Component/DuePayment/DuePayment";
 import UsageHistory from "./Component/UsuageHistory/UsuageHistory/UsuageHistory";
+import Payment from "./Component/Payment/Payment";
+import PaymentGateway from "./Component/PaymentGateway/PaymentGateway";
 
 import {
   SafeAreaView,
@@ -31,6 +33,8 @@ function App() {
          <Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>
          <Screen  name={"ViewDuePayment"} component={DuePayment}/>
          <Screen name={"ViewUsageHistory"} component={UsageHistory}/>
+         <Screen name={"ViewPayment"} component={Payment}/>
+         <Screen name={"ViewPaymentGateway"} component={PaymentGateway}/>
        </Navigator>
      </NavigationContainer>
   );

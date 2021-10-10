@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import {ScrollView, VStack} from "native-base";
+import {Button, ScrollView, VStack} from "native-base";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 
-function ViewPackages(props) {
+function ViewPackages() {
   return (
       <NativeBaseProvider>
       <ScrollView>
@@ -12,7 +12,9 @@ function ViewPackages(props) {
       <Text style={styles.wiFiPacakages}>Wi-Fi Pacakages</Text>
 
       <VStack space={4} alignItems="center">
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button}
+                        // onPress={() => navigation.navigate('ViewPayment')}
+      >
         <View style={styles.bellsFamilyPackColumnRow}>
           <View style={styles.bellsFamilyPackColumn}>
             <Text style={styles.bellsFamilyPack}>Bells Family Pack</Text>
@@ -29,7 +31,9 @@ function ViewPackages(props) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button}
+                        // onPress={() => navigation.navigate('ViewPayment')}
+      >
         <View style={styles.bellsFamilyPackColumnRow}>
           <View style={styles.bellsFamilyPackColumn}>
             <Text style={styles.bellsFamilyPack}>Bells Double Pack</Text>
@@ -46,7 +50,9 @@ function ViewPackages(props) {
         </View>
       </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+                          // onPress={() => navigation.navigate('ViewPayment')}
+        >
           <View style={styles.bellsFamilyPackColumnRow}>
             <View style={styles.bellsFamilyPackColumn}>
               <Text style={styles.bellsFamilyPack}>Bells Deal Pack</Text>
@@ -72,7 +78,9 @@ function ViewPackages(props) {
       <Text style={styles.workAndLearn}>Work and Learn</Text>
       <VStack space={4} alignItems="center">
 
-      <TouchableOpacity style={styles.button2}>
+      <TouchableOpacity style={styles.button2}
+                        // onPress={() => navigation.navigate('ViewPayment')}
+      >
         <View style={styles.videoConfereingColumnRow}>
           <View style={styles.videoConfereingColumn}>
             <Text style={styles.videoConfereing}>Video Confereing</Text>
@@ -85,7 +93,9 @@ function ViewPackages(props) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button2}>
+      <TouchableOpacity style={styles.button2}
+                        // onPress={() => navigation.navigate('ViewPayment')}
+      >
         <View style={styles.videoConfereingColumnRow}>
           <View style={styles.videoConfereingColumn}>
             <Text style={styles.videoConfereing}>Office Package</Text>
@@ -98,7 +108,9 @@ function ViewPackages(props) {
         </View>
       </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button2}>
+        <TouchableOpacity style={styles.button2}
+                          // onPress={() => ('ViewPayment')}
+        >
           <View style={styles.videoConfereingColumnRow}>
             <View style={styles.videoConfereingColumn}>
               <Text style={styles.videoConfereing}>School Package</Text>

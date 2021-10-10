@@ -134,6 +134,7 @@ function HomePage({navigation}){
                                     size="lg"
                                     colorScheme="danger"
                                     style={styles.butn}
+                                    onPress={() => navigation.navigate('ViewPayment')}
                                 >
                                     Pay Now
                                 </Button>
