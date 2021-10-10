@@ -28,16 +28,6 @@ export default function ListScrollView() {
                 <Text style={styles.headingFont}>BRANCH NETWORK</Text>
             </View>
 
-            <View style={styles.row}>
-                <TextInput
-                    style={{ padding: 10, width: "80%" }}
-                    //onChangeText={onChangeNumber}
-                    //value={number}
-                    placeholder="Search"
-                    keyboardType="ascii-capable"
-                />
-            </View>
-
             <ScrollView
                 style={styles.body}
                 // refreshControl={
@@ -48,44 +38,50 @@ export default function ListScrollView() {
                 ///>
             >
 
-
-
+                <View style={styles.row}>
+                    <TextInput
+                        style={{ padding: 10, width: "80%" }}
+                        //onChangeText={onChangeNumber}
+                        //value={number}
+                        placeholder="Search"
+                        keyboardType="ascii-capable"
+                    />
+                </View>
 
                 {Items.map(i => {
                     return (
                         // <View style={styles.item} key={i.key}>
                         //   <Text style={styles.text}>{i.item}</Text>
                         // </View>
-                        <View style={[styles.ContactUsrow, styles.elevation]}>
-                            <View style={styles.headOfficeDetail}>
-                                <View style={styles.conactUsHeadingView}>
-                                    <Text style={styles.conactUsHeadingFont}>{i.location}</Text>
-                                </View>
+                        <View style={styles.card1}>
+                        <View style={styles.headOfficeDetail}>
+                            <View style={styles.conactUsHeadingView}>
+                                <Text style={styles.conactUsHeadingFont}>{i.location}</Text>
+                            </View>
 
-                                <View style={styles.contactUsDetailView}>
-                                    <Text style={{ fontWeight: "bold", fontSize: 17, margin: 5 }}>
-                                        {i.address}
-                                    </Text>
-                                    <Text style={{ fontSize: 18, margin: 5 }}>
-                                        {
-                                            i.location === 'Head Office' ? <Text>Hotline: {i.hotline}</Text> : <Text>Telephone: {i.telephone}</Text>
-                                        }
-                                        {/* <Text style={{ fontWeight: "bold" }}>{i.telephone}</Text> */}
-                                    </Text>
-
+                            <View style={styles.contactUsDetailView}>
+                                <Text style={{ fontWeight: "bold", fontSize: 17, margin: 5 }}>
+                                    {i.address}
+                                </Text>
+                                <Text style={{ fontSize: 18, margin: 5 }}>
                                     {
-                                        i.location === 'Head Office' ?  <Text style={{ fontSize: 18, margin: 5}}><Text>Email :{" "} {i.email}</Text> </Text> : null
+                                        i.location === 'Head Office' ? <Text>Hotline: {i.hotline}</Text> : <Text>Telephone: {i.telephone}</Text>
                                     }
+                                    {/* <Text style={{ fontWeight: "bold" }}>{i.telephone}</Text> */}
+                                </Text>
+
+                                {
+                                    i.location === 'Head Office' ?  <Text style={{ fontSize: 18, margin: 5}}><Text>Email :{" "} {i.email}</Text> </Text> : null
+                                }
 
 
-                                    {/* <Text style={{ fontWeight: "bold" }}>
+                                {/* <Text style={{ fontWeight: "bold" }}>
                 bellcare@mail.lankabell.com
               </Text> */}
 
-                                </View>
                             </View>
                         </View>
-
+                        </View>
                     );
                 })}
             </ScrollView>
@@ -100,11 +96,29 @@ const styles = StyleSheet.create({
         // alignItems: "center",
         // justifyContent: "center",
     },
+    card1: {
+        alignItems: 'center',
+        width: wp('90%'),
+        height: hp('25%'),
+        top: hp('3%'),
+        bottom: hp('5%'),
+        paddingTop: hp('1%'),
+        backgroundColor: "rgba(255,255,255,1)",
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 0.38,
+        shadowRadius: 0,
+        borderRadius: 10,
+    },
     heading: {
         width: "100%",
         alignItems: "center",
         //backgroundColor: "brown",
-        marginTop: 30,
+        marginTop: 100,
         marginBottom: 35,
     },
     headingFont: {
@@ -122,49 +136,31 @@ const styles = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center',
     },
-    ContactUsrow: {
-        // backgroundColor: 'brown',
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 20,
-        // marginBottom: 80,
-        //marginBottom: 35,
-    },
-    headOfficeDetail: {
-        // width: "90%",
-        // // height: '60%',
-        // // backgroundColor: 'grey',
-        // alignItems: "center",
-        justifyContent: "center",
-        // borderWidth: 1,
-        // borderColor: "#000000",
-        // borderRadius: 10,
-        // borderColor: "white",
-        // elevation: 5,
-        // shadowColor: "white",
-        padding: 15,
-        // borderRadius: 2,
-        // borderWidth: 16,
-
-
-        alignItems: 'center',
-        width: wp('90%'),
-        height: hp('25%'),
-        top: hp('1%'),
-        bottom: hp('5%'),
-        paddingTop: hp('1%'),
-        backgroundColor: "rgba(255,255,255,1)",
-        shadowColor: "rgba(0,0,0,1)",
-        shadowOffset: {
-            width: 3,
-            height: 3
-        },
-        elevation: 5,
-        shadowOpacity: 0.38,
-        shadowRadius: 0,
-        borderRadius: 10,
-    },
+    // ContactUsrow: {
+    //     // backgroundColor: 'brown',
+    //     flexDirection: "row",
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     marginTop: 20,
+    //     // marginBottom: 80,
+    //     //marginBottom: 35,
+    // },
+    // headOfficeDetail: {
+    //     width: "90%",
+    //     // height: '60%',
+    //     // backgroundColor: 'grey',
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     // borderWidth: 1,
+    //     // borderColor: "#000000",
+    //     // borderRadius: 10,
+    //     borderColor: "white",
+    //     elevation: 5,
+    //     shadowColor: "white",
+    //     //padding: 15,
+    //     borderRadius: 2,
+    //     borderWidth: 16,
+    // },
     conactUsHeadingView: {
         // backgroundColor: 'blue',
         marginBottom: 12,

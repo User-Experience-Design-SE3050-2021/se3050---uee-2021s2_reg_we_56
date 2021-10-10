@@ -8,7 +8,7 @@ import {
     View,
 } from "react-native";
 
-export default function ContactUs() {
+export default function ContactUs({navigation}) {
     return (
         <View style={styles.body}>
             <View style={styles.heading}>
@@ -39,7 +39,7 @@ export default function ContactUs() {
                 {/* <Button title="Branch Network"></Button> */}
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigate("HomeScreen")}
+                    onPress={() => navigation.navigate("BRANCH NETWORK")}
                     underlayColor="#fff"
                 >
                     <Text
@@ -60,7 +60,7 @@ export default function ContactUs() {
                         <Text style={{ fontSize: 20 }}>Your Opinion Matters!</Text>
                     </Text>
                     <Text
-                        onPress={() => Linking.openURL("https://google.com")}
+                        onPress={() => navigation.navigate('FEEDBACK')}
                         style={styles.FeedbackView}
                     >
                         Drop Yourstyle{" "}
@@ -86,7 +86,7 @@ export default function ContactUs() {
                     </Text>
                     <Text
                         style={styles.ComplaintView}
-                        onPress={() => Linking.openURL("https://google.com")}
+                        onPress={() => navigation.navigate('COMPLAINT')}
                     >
                         Drop your{" "}
                         <Text

@@ -7,8 +7,9 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 
-export default function AccountOptions() {
+export default function AccountOptions({navigation}) {
     return (
 
         <View style={styles.body}>
@@ -22,7 +23,7 @@ export default function AccountOptions() {
             <Text style={{ fontSize: 20 }}>Your Opinion Matters!</Text>
           </Text> */}
                     <Text
-                        onPress={() => Linking.openURL("https://google.com")}
+                        onPress={() => navigation.navigate('USER PROFILE')}
                         style={styles.FeedbackView}
                     >
                         USER PROFILE
@@ -51,7 +52,7 @@ export default function AccountOptions() {
           </Text> */}
                     <Text
                         style={styles.ComplaintView}
-                        onPress={() => Linking.openURL("https://google.com")}
+                        onPress={() => navigation.navigate('ACCOUNT DETAILS')}
                     >
                         ACCOUNT DETAILS
                         {/* <Text
@@ -77,7 +78,7 @@ export default function AccountOptions() {
           </Text> */}
                     <Text
                         style={styles.ComplaintView}
-                        onPress={() => Linking.openURL("https://google.com")}
+                        onPress={() => navigation.navigate('LOGIN DETAILS')}
                     >
                         LOGIN DETAILS
                         {/*<Text
@@ -139,52 +140,86 @@ const styles = StyleSheet.create({
         // borderColor: "#000000",
         // borderRadius: 10,
         borderColor: "white",
-        elevation: 5,
+        elevation: 4,
         shadowColor: "white",
         //padding: 15,
         borderRadius: 2,
         borderWidth: 16,
     },
     feedbackBox: {
+        // // width: "90%",
+        // // // height: '45%',
+        // // // backgroundColor: 'grey',
+        // // alignItems: "center",
+        // // justifyContent: "center",
+        // // // borderWidth: 1,
+        // // // borderColor: "blue",
+        // // // borderRadius: 10,
+        // // //marginBottom: -30,
+        // // height: '45%',
+        // // backgroundColor: 'grey',
+        // width: "90%",
+        // alignItems: "center",
+        // justifyContent: "center",
+        // borderColor: "white",
+        // elevation: 5,
+        // shadowColor: "white",
+        // //padding: 5,
+        // borderRadius: 3,
+        // borderWidth: 16,
+        alignItems:'center',
+        width: wp('90%'),
+        height: hp('12%'),
+        top:hp('1%'),
+        //bottom:hp('2%'),
+        paddingTop: hp('1%'),
+        backgroundColor: "rgba(255,255,255,1)",
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 0.38,
+        shadowRadius: 0,
+        borderRadius: 10,
+    },
+    ComplaintBox: {
         // width: "90%",
         // // height: '45%',
         // // backgroundColor: 'grey',
         // alignItems: "center",
         // justifyContent: "center",
-        // // borderWidth: 1,
-        // // borderColor: "blue",
-        // // borderRadius: 10,
-        // //marginBottom: -30,
-        // height: '45%',
-        // backgroundColor: 'grey',
-        width: "90%",
-        alignItems: "center",
-        justifyContent: "center",
-        borderColor: "white",
+        // borderColor: "white",
+        // elevation: 5,
+        // shadowColor: "white",
+        // //padding: 15,
+        // borderRadius: 2,
+        // borderWidth: 16,
+        alignItems:'center',
+        width: wp('90%'),
+        height: hp('12%'),
+        top:hp('1%'),
+        //bottom:hp('2%'),
+        paddingTop: hp('1%'),
+        backgroundColor: "rgba(255,255,255,1)",
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
         elevation: 5,
-        shadowColor: "white",
-        //padding: 5,
-        borderRadius: 3,
-        borderWidth: 16,
-    },
-    ComplaintBox: {
-        width: "90%",
-        // height: '45%',
-        // backgroundColor: 'grey',
-        alignItems: "center",
-        justifyContent: "center",
-        borderColor: "white",
-        elevation: 5,
-        shadowColor: "white",
-        //padding: 15,
-        borderRadius: 2,
-        borderWidth: 16,
+        shadowOpacity: 0.38,
+        shadowRadius: 0,
+        borderRadius: 10,
+
     },
     heading: {
         width: "100%",
         alignItems: "center",
         //backgroundColor: "brown",
-        marginBottom: 50,
+        marginBottom: 30,
+        // paddingBottom: 70
     },
     headingFont: {
         fontSize: 25,
