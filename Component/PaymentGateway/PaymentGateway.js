@@ -13,7 +13,7 @@ import {Button, HStack, Stack} from "native-base";
 
 
 
-function PaymentGateway(){
+function PaymentGateway({navigation}){
 
     return (
         <NativeBaseProvider>
@@ -92,6 +92,7 @@ function PaymentGateway(){
                             colorScheme="danger"
                             style={styles.btn}
                             //  onPress={() => console.log('hello world')}
+                            onPress={() => navigation.navigate('ViewHomePage')}
                         >
                             Pay Now
                         </Button>

@@ -9,7 +9,6 @@ import { RadioButton } from 'react-native-paper';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {Button, HStack, Stack} from "native-base";
-import {createStackNavigator} from '@react-navigation/stack';
 
 
 function Payment({navigation}){
@@ -85,7 +84,7 @@ function Payment({navigation}){
                             size="lg"
                             colorScheme="danger"
                             style={styles.btn}
-                            // onPress={() => navigation.push('Payment Gateway')}
+                            onPress={() => navigation.navigate('ViewPaymentGateway')}
                         >
                             Proceed
                         </Button>

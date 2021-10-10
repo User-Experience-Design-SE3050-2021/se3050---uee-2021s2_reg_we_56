@@ -51,7 +51,6 @@ function ViewDataAddOn({navigation}){
                        variant="outline"
                        colorScheme="danger"
                        style={styles.btn}
-                       //  onPress={() => console.log('hello world')}
                        onPress={() => navigation.navigate('ViewHomePage')}
                    >
                        Cancel
@@ -62,6 +61,7 @@ function ViewDataAddOn({navigation}){
                        colorScheme="danger"
                        style={styles.btn}
                        //  onPress={() => console.log('hello world')}
+                       onPress={() => navigation.navigate('ViewPayment')}
                    >
                        Reload
                    </Button>
