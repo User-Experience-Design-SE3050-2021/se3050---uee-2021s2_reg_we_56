@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
     faUsers
 } from '@fortawesome/free-solid-svg-icons';
-import { StyleSheet, View, Image, Text } from "react-native";
+import {StyleSheet, View, Image, Text, ToastAndroid} from "react-native";
 import {Button, HStack, Icon, Input} from "native-base";
 import * as Alert from "react-native";
 import {ScrollView} from "react-native-gesture-handler";
@@ -11,23 +11,35 @@ import {heightPercentageToDP as hp,widthPercentageToDP as wp} from 'react-native
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 //import Svg, { Ellipse } from "react-native-svg";
 
+const userDetails = {
+    username:'Malindu97',
+    password:'malindu123'
+}
+
 function LoginView({navigation}) {
+
+    const [username,setUsername] = React.useState('')
+    const [password,setPassword] = React.useState('')
+
+    const handleLogin = () => {
+
+        if(userDetails.username === username){
+            if(userDetails.password === password){
+                ToastAndroid.show('successfully log In', ToastAndroid.SHORT)
+                navigation.navigate('ViewDuePayment')
+            }else{
+                ToastAndroid.show('Password Does Not Match', ToastAndroid.SHORT)
+            }
+        }else{
+            ToastAndroid.show('User Does Not Exist', ToastAndroid.SHORT)
+        }
+    }
+
     return (
         <NativeBaseProvider>
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.ellipseStack}>
-                        {/*<Svg viewBox="0 0 781.3 372.87" style={styles.ellipse}>*/}
-                        {/*  <Ellipse*/}
-                        {/*    stroke="rgba(230, 230, 230,1)"*/}
-                        {/*    strokeWidth={0}*/}
-                        {/*    fill="rgba(167,192,220,1)"*/}
-                        {/*    cx={391}*/}
-                        {/*    cy={186}*/}
-                        {/*    rx={391}*/}
-                        {/*    ry={186}*/}
-                        {/*  ></Ellipse>*/}
-                        {/*</Svg>*/}
                         <Image
                             source={require("../../Images/logo.png")}
                             resizeMode="contain"
@@ -46,6 +58,7 @@ function LoginView({navigation}) {
                                base: "85%",
                                md: "32%",
                            }}
+                           onChangeText={text => setUsername(text)}
                     />
                     <Text style={styles.password}>Password</Text>
                     <Input style={styles.enterThePassword}
@@ -56,13 +69,14 @@ function LoginView({navigation}) {
                                base: "85%",
                                md: "32%",
                            }}
+                           onChangeText={text => setPassword(text)}
                     />
                     <Button
                         size="lg"
                         colorScheme="danger"
                         style={styles.bttn}
                         //  onPress={() => console.log('hello world')}
-                        onPress={() => navigation.navigate('ViewHomePage')}
+                        onPress={handleLogin}
                     >
                         Login
                     </Button>
