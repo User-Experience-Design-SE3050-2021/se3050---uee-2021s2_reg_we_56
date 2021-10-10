@@ -93,7 +93,7 @@ function HomePage({navigation}){
                                     p="3"
                                 >
                                     <Text style={styles.subBoxSubText1}>AnyTime </Text>
-                                    <Text style={styles.subBoxSubText2}>{data.data}</Text>
+                                    <Text style={styles.subBoxSubText2}>{data.data} GB</Text>
                                     <Text style={styles.subBoxSubText3}>remaining </Text>
                                 </Box>
 
