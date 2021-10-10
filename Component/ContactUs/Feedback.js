@@ -5,11 +5,12 @@ import {
     TouchableOpacity,
     View,
     Image,
-    TextInput
+    TextInput, ToastAndroid
 } from "react-native";
 
-const Feedback = () => {
-    const [defaultRating, setdefaultRating] = useState(2);
+const Feedback = ({navigation}) => {
+    const [defaultRating, setdefaultRating] = useState(1);
+    const [feedback, setfeedback] = useState('');
     const [maxRating, setmaxRaing] = useState([1,2,3,4,5]);
 
     const starImgFilled = 'https://raw.githubusercontent.com/tranhonghan/images/main/star_filled.png';
@@ -66,6 +67,8 @@ const Feedback = () => {
             <View style={styles.row}>
                 <TextInput
                     style={{ padding: 3, width: "80%" }}
+                    value={feedback}
+                    onChangeText={(data) => setfeedback(data)}
                     //onChangeText={onChangeNumber}
                     //value={number}
                     //placeholder="Internet is slow"
@@ -90,7 +93,7 @@ const Feedback = () => {
             <View style={styles.button}>
                 <View style={styles.cancelButton}>
                     <TouchableOpacity
-                        onPress={() => navigate("HomeScreen")}
+                        onPress={() => navigation.navigate("CONTACT US")}
                         underlayColor="#fff"
                     >
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: 'black' }}>
@@ -101,8 +104,9 @@ const Feedback = () => {
                 <View style={styles.submitButton}>
                     <TouchableOpacity
                         onPress={() => {
-                            alert('Thank You for your feedback')
-                            setdefaultRating(2)
+                            ToastAndroid.show('Thank You for your feedback, we appreciate it very much',ToastAndroid.LONG)
+                            setdefaultRating(1)
+                            setfeedback('');
                         }
                         }
                         underlayColor="#fff"
