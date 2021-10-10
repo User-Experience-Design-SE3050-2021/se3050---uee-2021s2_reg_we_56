@@ -4,7 +4,8 @@ import {
     View,
     Text,
     TextInput,
-    Image
+    Image,
+    ToastAndroid
 } from "react-native";
 
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
@@ -14,6 +15,12 @@ import {Button, HStack, Stack} from "native-base";
 
 
 function PaymentGateway({navigation}){
+
+    const handlePayment = () => {
+
+        ToastAndroid.show('Successfully Data Added !', ToastAndroid.SHORT)
+        navigation.navigate('ViewHomePage')
+    }
 
     return (
         <NativeBaseProvider>
@@ -92,7 +99,7 @@ function PaymentGateway({navigation}){
                             colorScheme="danger"
                             style={styles.btn}
                             //  onPress={() => console.log('hello world')}
-                            onPress={() => navigation.navigate('ViewHomePage')}
+                            onPress={handlePayment}
                         >
                             Pay Now
                         </Button>
