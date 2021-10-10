@@ -27,15 +27,15 @@ function ViewDataAddOn({navigation}) {
         } else if (onChange === 2) {
             await setFinalValue('2 GB');
         } else if (onChange === 3) {
-            await setFinalValue('5 GB');
+            await setFinalValue('3 GB');
         } else if (onChange === 4) {
-            await setFinalValue('10 GB');
+            await setFinalValue('4 GB');
         } else if (onChange === 5) {
-            await setFinalValue('15 GB');
+            await setFinalValue('5 GB');
         } else if (onChange === 6) {
-            await setFinalValue('20 GB');
+            await setFinalValue('6 GB');
         } else if (onChange === 7) {
-            await setFinalValue('30 GB');
+            await setFinalValue('7 GB');
         } else {
             await setFinalValue('0 GB');
         }
@@ -59,15 +59,15 @@ function ViewDataAddOn({navigation}) {
         } else if (onChange === 2) {
             return '2 GB';
         } else if (onChange === 3) {
-            return '5 GB';
+            return '3 GB';
         } else if (onChange === 4) {
-            return '10 GB';
+            return '4 GB';
         } else if (onChange === 5) {
-            return '15 GB';
+            return '5 GB';
         } else if (onChange === 6) {
-            return '20 GB';
+            return '6 GB';
         } else if (onChange === 7) {
-            return '30 GB';
+            return '7 GB';
         } else {
             return '0 GB';
         }
