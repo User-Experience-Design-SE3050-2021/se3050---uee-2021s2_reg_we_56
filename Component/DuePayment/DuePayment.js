@@ -2,7 +2,7 @@ import React from "react";
 import {
     StyleSheet,
     View,
-    Text, TextInput, Image,
+    Text, TextInput, Image, ToastAndroid,
 
 } from "react-native";
 import { RadioButton } from 'react-native-paper';
@@ -11,8 +11,15 @@ import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {Button, HStack, Stack, VStack} from "native-base";
 import {ScrollView} from "react-native-gesture-handler";
 
-function DuePayment() {
+function DuePayment({navigation}) {
     const [checked, setChecked] = React.useState('first');
+
+    const handlePayment = () => {
+
+        ToastAndroid.show('Payment Success !', ToastAndroid.SHORT)
+        navigation.navigate('ViewHomePage')
+    }
+
     return (
         <NativeBaseProvider>
             <ScrollView>
@@ -136,7 +143,7 @@ function DuePayment() {
                         size="lg"
                         colorScheme="danger"
                         style={styles.btn}
-                        //  onPress={() => console.log('hello world')}
+                        onPress={handlePayment}
                     >
                         Proceed
                     </Button>

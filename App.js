@@ -38,23 +38,23 @@ function App() {
   return (
     <NavigationContainer>
        <Navigator>
-         <Screen  name={"ViewLogin"} component={LoginView}/>
+         {/*<Screen  name={"ViewLogin"} component={LoginView}/>*/}
          <Screen name={"ViewHomePage"} component={HomePage}/>
-         <Screen  name={"ViewPackages"} component={ViewPackages}/>
-         <Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>
-         <Screen  name={"ViewDuePayment"} component={DuePayment}/>
-         <Screen name={"ViewUsageHistory"} component={UsageHistory}/>
-         <Screen name={"ViewPayment"} component={Payment}/>
-         <Screen name={"ViewPaymentGateway"} component={PaymentGateway}/>
-         <Screen name={"ViewPaymentHistory"} component={PaymentHistory}/>
-         <Screen  name={"CONTACT US"} component={ContactUsSample}/>
-         <Screen  name={"FEEDBACK"} component={Feedback}/>
-         <Screen  name={"COMPLAINT SUBMISSION"} component={ComplaintSubmission}/>
-         <Screen  name={"BRANCH NETWORK"} component={BranchNetwork}/>
-           <Screen  name={"ACCOUNT OPTION"} component={AccountOptions}/>
-           <Screen  name={"USER PROFILE"} component={UserProfile}/>
-           <Screen  name={"ACCOUNT DETAILS"} component={AccountDetails}/>
-           <Screen  name={"LOGIN DETAILS"} component={LoginDetails}/>
+         {/*<Screen  name={"ViewPackages"} component={ViewPackages}/>*/}
+         {/*<Screen name={"ViewDataAdd"} component={ViewDataAddOn}/>*/}
+         {/*<Screen  name={"ViewDuePayment"} component={DuePayment}/>*/}
+         {/*<Screen name={"ViewUsageHistory"} component={UsageHistory}/>*/}
+         {/*<Screen name={"ViewPayment"} component={Payment}/>*/}
+         {/*<Screen name={"ViewPaymentGateway"} component={PaymentGateway}/>*/}
+         {/*<Screen name={"ViewPaymentHistory"} component={PaymentHistory}/>*/}
+         {/*<Screen  name={"CONTACT US"} component={ContactUsSample}/>*/}
+         {/*<Screen  name={"FEEDBACK"} component={Feedback}/>*/}
+         {/*<Screen  name={"COMPLAINT SUBMISSION"} component={ComplaintSubmission}/>*/}
+         {/*<Screen  name={"BRANCH NETWORK"} component={BranchNetwork}/>*/}
+         {/*  <Screen  name={"ACCOUNT OPTION"} component={AccountOptions}/>*/}
+         {/*  <Screen  name={"USER PROFILE"} component={UserProfile}/>*/}
+         {/*  <Screen  name={"ACCOUNT DETAILS"} component={AccountDetails}/>*/}
+         {/*  <Screen  name={"LOGIN DETAILS"} component={LoginDetails}/>*/}
 
        </Navigator>
      </NavigationContainer>
