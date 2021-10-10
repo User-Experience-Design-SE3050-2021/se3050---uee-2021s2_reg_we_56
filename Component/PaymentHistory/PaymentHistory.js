@@ -7,7 +7,8 @@ import {
 import { Divider } from 'react-native-paper';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
-import {Button, HStack, Stack} from "native-base";
+import {Button, HStack, Stack, VStack} from "native-base";
+import {ScrollView} from "react-native-gesture-handler";
 
 
 function PaymentHistory() {
@@ -24,7 +25,10 @@ function PaymentHistory() {
                         </Text>
                     </HStack>
                 </View>
+
                 <View style={styles.card1}>
+                    <VStack>
+                        <ScrollView>
                     <View>
                     <HStack space={2} alignItems="center">
                         <Text style={styles.transactionDate}>Transaction Date</Text>
@@ -57,11 +61,11 @@ function PaymentHistory() {
                     <View style={styles.view}>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Transaction Date</Text>
-                            <Text style={styles.date}>06.Jul.2021</Text>
+                            <Text style={styles.date}>06.Jun.2021</Text>
                         </HStack>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Receipt Number</Text>
-                            <Text style={styles.date}>  IBP_335644</Text>
+                            <Text style={styles.date}>  IBP_335643</Text>
                         </HStack>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Payment Branch</Text>
@@ -86,11 +90,11 @@ function PaymentHistory() {
                     <View style={styles.view1}>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Transaction Date</Text>
-                            <Text style={styles.date}>06.Jul.2021</Text>
+                            <Text style={styles.date}>06.May.2021</Text>
                         </HStack>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Receipt Number</Text>
-                            <Text style={styles.date}>  IBP_335644</Text>
+                            <Text style={styles.date}>  IBP_335642</Text>
                         </HStack>
                         <HStack space={2} alignItems="center">
                             <Text style={styles.transactionDate}>Payment Branch</Text>
@@ -112,8 +116,69 @@ function PaymentHistory() {
                             <Divider style={styles.div} />
                         </View>
                     </View>
+                            <View style={styles.view2}>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Transaction Date</Text>
+                                    <Text style={styles.date}>06.Apr.2021</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Receipt Number</Text>
+                                    <Text style={styles.date}>  IBP_335641</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Payment Branch</Text>
+                                    <Text style={styles.date}> Internet Bill</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Amount</Text>
+                                    <Text style={styles.date}>                Rs 1500.00</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Payment Mode</Text>
+                                    <Text style={styles.date}>   Cash</Text>
+                                </HStack>
+                                <View>
+                                    <Text style={styles.totAmount}>Total Payable Amount : Rs 1536.00</Text>
+                                    <Divider style={styles.divider} />
+                                </View>
+                                <View style={styles.divider} >
+                                    <Divider style={styles.div} />
+                                </View>
+                            </View>
+                            <View style={styles.view2}>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Transaction Date</Text>
+                                    <Text style={styles.date}>06.Mar.2021</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Receipt Number</Text>
+                                    <Text style={styles.date}>  IBP_335640</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Payment Branch</Text>
+                                    <Text style={styles.date}> Internet Bill</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Amount</Text>
+                                    <Text style={styles.date}>                Rs 1500.00</Text>
+                                </HStack>
+                                <HStack space={2} alignItems="center">
+                                    <Text style={styles.transactionDate}>Payment Mode</Text>
+                                    <Text style={styles.date}>   Cash</Text>
+                                </HStack>
+                                <View>
+                                    <Text style={styles.totAmount}>Total Payable Amount : Rs 1536.00</Text>
+                                    <Divider style={styles.divider} />
+                                </View>
+                                <View style={styles.divider} >
+                                    <Divider style={styles.div} />
+                                </View>
+                            </View>
+                        </ScrollView>
+                    </VStack>
                 </View>
             </View>
+
 
         </NativeBaseProvider>
     )
@@ -145,6 +210,7 @@ const styles = StyleSheet.create({
         height: hp('82%'),
         top:hp('5%'),
         paddingTop: hp('1%'),
+        paddingBottom: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -169,6 +235,10 @@ const styles = StyleSheet.create({
     },
     view1:{
         top:hp('4%'),
+    },
+    view2:{
+        top:hp('6%'),
+        height:hp('26%'),
     },
 
     date:{

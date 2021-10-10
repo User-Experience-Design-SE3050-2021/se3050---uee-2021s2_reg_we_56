@@ -11,6 +11,7 @@ import {
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import {NativeBaseProvider} from "native-base/src/core/NativeBaseProvider";
 import {Button, HStack, Stack} from "native-base";
+import {ScrollView} from "react-native-gesture-handler";
 
 
 
@@ -26,6 +27,7 @@ function PaymentGateway({navigation}){
         <NativeBaseProvider>
 
             <View style={styles.container}>
+                <ScrollView>
                 <View style={styles.logo}>
                     <HStack space={2} alignItems="center">
                     <Image
@@ -90,8 +92,21 @@ function PaymentGateway({navigation}){
                             </View>
                         </HStack>
                     </View>
+                    <Stack space={2} alignItems="center">
+                        <HStack space={2} alignItems="center">
+                            <Button
+                                size="lg"
+                                colorScheme="danger"
+                                style={styles.btn}
+                                //  onPress={() => console.log('hello world')}
+                                onPress={() => navigation.navigate('ViewHomePage')}
+                            >
+                                Pay Now
+                            </Button>
+                        </HStack>
+                    </Stack>
                 </View>
-
+            </ScrollView>
                 <Stack space={2} alignItems="center">
                     <HStack space={2} alignItems="center">
                         <Button
@@ -168,7 +183,7 @@ const styles = StyleSheet.create({
     },
     payment:{
         width: wp('90%'),
-        height: hp('40%'),
+        height: hp('65%'),
         top:hp('10%'),
         paddingTop: hp('1%'),
         backgroundColor: "rgba(255,255,255,1)",
@@ -268,7 +283,7 @@ const styles = StyleSheet.create({
         borderRadius:50,
         borderColor:'rgb(246,41,41)',
         borderWidth:2,
-        top: hp('18%'),
+        top:hp('6%'),
         bottom: hp('5%'),
         width: wp('63%')
     }
