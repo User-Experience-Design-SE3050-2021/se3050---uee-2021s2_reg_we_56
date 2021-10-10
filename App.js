@@ -8,6 +8,8 @@ import DuePayment from "./Component/DuePayment/DuePayment";
 import UsageHistory from "./Component/UsuageHistory/UsuageHistory/UsuageHistory";
 import Payment from "./Component/Payment/Payment";
 import PaymentGateway from "./Component/PaymentGateway/PaymentGateway";
+import PaymentHistory from "./Component/PaymentHistory/PaymentHistory";
+
 
 import {
   SafeAreaView,
@@ -21,7 +23,9 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 const {Navigator,Screen} = createStackNavigator()
+
 
 function App() {
   return (
@@ -35,6 +39,7 @@ function App() {
          <Screen name={"ViewUsageHistory"} component={UsageHistory}/>
          <Screen name={"ViewPayment"} component={Payment}/>
          <Screen name={"ViewPaymentGateway"} component={PaymentGateway}/>
+         <Screen name={"ViewPaymentHistory"} component={PaymentHistory}/>
        </Navigator>
      </NavigationContainer>
   );
